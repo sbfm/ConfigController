@@ -1,6 +1,6 @@
 # PythonConfigController
 ====
-Pythonのconfigparserをラップしたクラス
+Pythonのconfigparserをラップしたクラスです。
 
 ## Overview
 Vimのフォント設定をコマンドから手軽に行えます。

@@ -5,28 +5,32 @@
 #
 import os
 import configparser
-#
-# configparser wrapper class
-# if there is no file or key, create it
-#
-# How to Use
-# [sample code]
-# import ConfigController as cc
-# cini = cc.ConfigController('config.ini')
-# value = cini.getProperties("Application","setting","defaultValue")
-#
-# [sample code2]
-# import ConfigController as cc
-# cini = cc.ConfigController('config.ini')
-# cini.setSection("Application")
-# value = cini.getProperties("setting","defaultValue")
 
 class ConfigController:
+    """configparser wrapper class
+    
+    if there is no file or key, create it
+    
+    [sample code]
+    import ConfigController as cc
+    cini = cc.ConfigController('config.ini')
+    value = cini.getProperties("Application","setting","defaultValue")
+    
+    [sample code2]
+    import ConfigController as cc
+    cini = cc.ConfigController('config.ini')
+    cini.setSection("Application")
+    value = cini.getProperties("setting","defaultValue")
+    """
+    
     config_ini = configparser.ConfigParser()
-    # -------------------------
-    # constructor
-    # -------------------------
-    def __init__(self,configFilePath):
+    
+    def __init__(self,configFilePath = "config.ini", encoding = "utf-8"):
+        """set Config File Path
+        
+        *argument
+        [0]configFilePath
+        """
         # check has property file
         if not os.path.exists(configFilePath):
             # if property file is null make file
@@ -34,36 +38,35 @@ class ConfigController:
             f.close()
         # read property file
         self.configFile = configFilePath
-        self.config_ini.read(configFilePath, encoding='utf-8')
+        self.config_ini.read(configFilePath, encoding)
     
-    # ------------------------
-    # set section
-    # ------------------------
-    # this logic don't must use
-    # if you set a section, you will not need to set a section anymore.
-    #
-    # * argument
-    # [0] section name
-    #
-    def setSection(self,asg):
-        self.sectionName = asg
+    def setSection(self,sectionName):
+        """set section
+        
+        this logic don't must use
+        if you set a section, you will not need to set a section anymore.
+        
+        * argument
+        [0] section name
+        """
+        self.sectionName = sectionName
         return 1
     
-    # ------------------------
-    # get property value
-    # ------------------------
-    # If there is no value, a default is registered.
-    #
-    # * argument(Use setSection() in advance)
-    # [0] properties name
-    # [1] default value
-    #
-    # * argument2
-    # [0] section name
-    # [1] properties name
-    # [2] default value
-    #
     def getProperties(self,*properties):
+        """get property value
+        
+        If there is no value, a default is registered.
+        
+        * argument(Use setSection() in advance)
+        [0] properties name
+        [1] default value
+        
+        * argument2
+        [0] section name
+        [1] properties name
+        [2] default value
+        """
+        
         if len(properties) == 2 :
             # set 2 arguments
             try :
@@ -90,21 +93,18 @@ class ConfigController:
             resultValue = self.config_ini[sectionName][propertiesName]
         return resultValue
 
-    # ------------------------
-    # set properties Value
-    # ------------------------
-    # register properties
-    #
-    # * argument(Use setSection() in advance)
-    # [0] properties name
-    # [1] default value
-    #
-    # * argument2
-    # [0] section name
-    # [1] properties name
-    # [2] default value
-    #
     def setProperties(self,*properties):
+        """register properties Value
+        
+        * argument(Use setSection() in advance)
+        [0] properties name
+        [1] default value
+        
+        * argument2
+        [0] section name
+        [1] properties name
+        [2] default value
+        """
         if len(properties) == 2 :
             # set 2 arguments
             try :
@@ -130,13 +130,12 @@ class ConfigController:
             self.config_ini.write(file)
         return 1
 
-    # ------------------------
-    # set section
-    # ------------------------
-    # 
     def hasSection(self,sectionName):
+        """set section
+        """
         if not(self.config_ini.has_section(sectionName)):
             self.config_ini.add_section(sectionName)
             with open(self.configFile, 'w') as file:
                 self.config_ini.write(file)
         return 1
+
