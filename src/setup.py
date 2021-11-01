@@ -8,7 +8,7 @@ with open("README.md", "r" ,encoding='utf-8') as fh:
 setuptools.setup(
     name="ConfigController",
     version="0.2.0",
-    author="Fumiya-Shibaata",
+    author="Fumiya-Shibamata",
     author_email="fumi_siba@yahoo.co.jp",
     description="easy control config",
     long_description=long_description,
@@ -20,5 +20,7 @@ setuptools.setup(
         "License :: MIT License",
         "Operating System :: OS Independent",
     ],
+    packages=['src'],
+    package_dir={},
     python_requires='>=3.6',
 )
