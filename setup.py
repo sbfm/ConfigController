@@ -1,8 +1,3 @@
-from setuptools import setup
-
-setup()
-
-
 # coding: utf-8
 from setuptools import setup, find_packages
 
