@@ -19,6 +19,6 @@ setuptools.setup(
         "License :: MIT License",
         "Operating System :: OS Independent",
     ],
-    package_dir={'src': 'ConfigController'},
+    package_dir={'': 'src'},
     python_requires='>=3.6',
 )
