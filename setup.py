@@ -20,6 +20,6 @@ setuptools.setup(
         "License :: MIT License",
         "Operating System :: OS Independent",
     ],
-    package_dir={},
+    package_dir={'': 'src'},
     python_requires='>=3.6',
 )
