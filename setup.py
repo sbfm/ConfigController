@@ -14,13 +14,12 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/sbfm/ConfigController",
-    packages=setuptools.find_packages(),
+    packages=['src'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: MIT License",
         "Operating System :: OS Independent",
     ],
-    packages=['src'],
     package_dir={},
     python_requires='>=3.6',
 )
