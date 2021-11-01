@@ -8,6 +8,9 @@ Pythonのconfigparserをラップしたクラスです。
 また、getPropertiesCを利用すれば、プロパティ値の説明を加えることができます。  
 これはソースコードの配布や設定ファイルを安全にするのに役に立ちます。  
 
+## Install
+pip install git+https://github.com/sbfm/ConfigController
+
 ## Sample Code
 [sample code]  
 import ConfigController as cc  
