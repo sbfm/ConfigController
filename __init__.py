@@ -2,31 +2,31 @@
 #
 # Licence : MIT Licence
 # owner   : Fumiya Shibamata
-# version : 1.0
+# version : 2.0
+# web : https://github.com/sbfm/ConfigController
 #
 import os
 import configparser
 
-
-class ConfigController:
+class Call:
     """Configparser wrapper class.
     
     if there is no file or key, create it
     
     [sample code]
     import ConfigController as cc
-    cini = cc.ConfigController('config.ini')
+    cini = cc.Call('config.ini')
     value = cini.getProperties("Application","setting","defaultValue")
     
     [sample code2]
     import ConfigController as cc
-    cini = cc.ConfigController('config.ini')
+    cini = cc.Call('config.ini')
     cini.setSection("Application")
     value = cini.getProperties("setting","defaultValue")
     
     [sample code3]
     import ConfigController as cc
-    cini = cc.ConfigController('config.ini')
+    cini = cc.Call('config.ini')
     cini.setSection("Application")
     value = cini.getPropertiesC("setting","defaultValue","settingInfoText")
     """
@@ -226,4 +226,3 @@ class ConfigController:
             with open(self.configFile, 'w') as file:
                 self.config_ini.write(file)
         return 1
-

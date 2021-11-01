@@ -1,4 +1,4 @@
-# PythonConfigController
+# ConfigController
 ====
 Pythonのconfigparserをラップしたクラスです。
 
@@ -11,18 +11,18 @@ Pythonのconfigparserをラップしたクラスです。
 ## Sample Code
 [sample code]  
 import ConfigController as cc  
-cini = cc.ConfigController('config.ini')  
+cini = cc.Call('config.ini')  
 value = cini.getProperties("Application","setting","defaultValue")  
   
 [sample code2]  
 import ConfigController as cc  
-cini = cc.ConfigController('config.ini')  
+cini = cc.Call('config.ini')  
 cini.setSection("Application")  
 value = cini.getProperties("setting","defaultValue")  
   
 [sample code3]  
 import ConfigController as cc  
-cini = cc.ConfigController('config.ini')  
+cini = cc.Call('config.ini')  
 cini.setSection("Application")  
 value = cini.getPropertiesC("setting","defaultValue","settingInfoText")  
 
